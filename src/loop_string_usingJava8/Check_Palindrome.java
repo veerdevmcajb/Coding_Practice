@@ -4,7 +4,7 @@ public class Check_Palindrome {
 
     public static void main(String[] args) {
 
-        String str = "baba";
+        String str = "madam";
         String rev="";
 
         for(int i=str.length()-1; i>=0; i--){
@@ -23,6 +23,8 @@ public class Check_Palindrome {
 
         boolean ispalindrome = str.equals(new StringBuilder(str).reverse().toString());
         System.out.println(ispalindrome);
+
+
 
         // rev string
         String res = new StringBuilder(str).reverse().toString();
@@ -46,5 +48,12 @@ public class Check_Palindrome {
         }else {
             System.out.println(temp + " is not palindrome ");
         }
+
+        int number=121;
+        String res12 = String.valueOf(number);
+        System.out.println(res12.equals(new StringBuilder(res12).reverse().toString())
+        ?" is palindrome " : " not palindrome"
+        );
+
     }
 }

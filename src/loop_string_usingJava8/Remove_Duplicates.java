@@ -3,6 +3,7 @@ package loop_string_usingJava8;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Remove_Duplicates {
 
@@ -16,20 +17,22 @@ public class Remove_Duplicates {
                 result+=c;              // add that char in result
             }
         }
-        System.out.print(result);
+        System.out.println("Removing duplicates using loop \n"+ result);
 
         // using java 8
         System.out.println();
 
-        str.chars().distinct().mapToObj(c-> String.valueOf((char) c)).forEach(System.out::print);
-       // System.out.println(res);
+        String res = str.chars().distinct().mapToObj(c-> String.valueOf((char) c)).collect(Collectors.joining());
+        System.out.println("Removing duplicates using Stream \n "+ res);
 
 
+        System.out.println("duplicates Elements ");
         String[]arr=str.split("");
         List<String> strList= Arrays.asList(arr);
         strList.stream().filter(e->Collections.frequency(strList,e)>1).distinct().forEach(System.out::println);
 
         strList.stream().distinct().forEach(System.out::print);
+
 
     }
 }
