@@ -216,5 +216,18 @@ public class EmployeeEx {
 
      Optional<EmployeeEx>optional4 = employeeList.stream().collect(Collectors.maxBy(Comparator.comparing(EmployeeEx::getAge)));
         System.out.println(optional4);
+
+
+        // 3rd height sal
+       // employeeList.stream().sorted(Comparator.comparingDouble(EmployeeEx::getSalary)).collect(Collectors.)
+        employeeList.stream().sorted(Comparator.comparing(EmployeeEx::getSalary).reversed()).skip(2).limit(1).forEach(System.out::println);
+
+        System.out.println("************************************************");
+        //
+        Map<String, Optional<EmployeeEx>> collect = employeeList.stream().collect(Collectors.groupingBy(EmployeeEx::getDept, Collectors.maxBy(Comparator.comparing(EmployeeEx::getSalary))));
+        System.out.println(collect);
+
+
+
     }
 }

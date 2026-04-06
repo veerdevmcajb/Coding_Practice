@@ -221,20 +221,76 @@ public class Stream65 {
 //        System.out.println(s);
 
         // 41 Generate the first N numbers in the Fibonacci sequence.
-        int n = 10;
-        List<Integer> collect = Stream.iterate(new int[]{0, 1}, arr -> new int[]{arr[1], arr[0] + arr[1]})
-                .limit(n)
-                .map(arr -> arr[0])
-                .collect(Collectors.toList());
-        System.out.println(collect);
+//        int n = 10;
+//        List<Integer> collect = Stream.iterate(new int[]{0, 1}, arr -> new int[]{arr[1], arr[0] + arr[1]})
+//                .limit(n)
+//                .map(arr -> arr[0])
+//                .collect(Collectors.toList());
+//        System.out.println(collect);
 
 
         // 43  Group words by their length and sort each group alphabetically.
-        List<String> words = Arrays.asList("java", "stream", "api", "example", "code", "test");
-       Map<Integer , List<String>> res  = words.stream().collect(Collectors.groupingBy(String::length , Collectors.collectingAndThen(Collectors.toList(),
-                list -> list.stream().sorted().collect(Collectors.toList())
-                )));
-        System.out.println(res);
+//        List<String> words = Arrays.asList("java", "stream", "api", "example", "code", "test");
+//       Map<Integer , List<String>> res  = words.stream().collect(Collectors.groupingBy(String::length , Collectors.collectingAndThen(Collectors.toList(),
+//                list -> list.stream().sorted().collect(Collectors.toList())
+//                )));
+//        System.out.println(res);
+
+       // 44 Calculate the product of all numbers in a list using reduce.
+//        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+//        int productOfNum = numbers.stream()
+//                .reduce(1,(a,b)-> a*b);
+//        System.out.println("productOfNum " + productOfNum);
+
+        // 49 Find Non-Repeating Characters in a String
+//        String input ="Shivanand";
+//        input.chars()
+//                .mapToObj(c->(char)c)
+//                .filter(c-> input.indexOf(c) == input.lastIndexOf(c))
+//                .forEach(System.out::println);
+
+       // 51  Count the frequency of each character in a string.
+//        String s = "success";
+//        Map<Character , Long> frequencyOfChar = s.chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(c->c , Collectors.counting()));
+//        System.out.println(frequencyOfChar);
+
+        // 52 Flatten a list of lists into a single list.
+//        List<List<Integer>> nestedList = Arrays.asList(
+//                Arrays.asList(1, 2, 3),
+//                Arrays.asList(4, 5),
+//                Arrays.asList(6, 7, 8, 9)
+//        );
+//        List<Integer> flatList = nestedList.stream().flatMap(List::stream).collect(Collectors.toList());
+//        System.out.println(flatList);
+
+
+        // 53 .  Identify all duplicate elements in a list
+//        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 2, 5, 3, 6);
+//
+//        Set<Integer> duplicates  = numbers.stream()
+//                .filter(c-> Collections.frequency(numbers ,c)>1)
+//                .collect(Collectors.toSet());
+//        System.out.println(duplicates);
+
+
+        // 54.Convert a map to a list of “key=value” strings.
+//        Map<String, Integer> map = Map.of("A", 1, "B", 2, "C", 3);
+//
+//        List<String > keyValue = map.entrySet().stream()
+//                .map(e->e.getKey() + "= "+ e.getValue())
+//                .collect(Collectors.toList());
+//        System.out.println(keyValue);
+
+
+        // Q. Convert a list of strings to sentence case.
+//        List<String> words = Arrays.asList("java", "stream", "api");
+//        List<String > res = words.stream().map(w->w.substring(0,1).toUpperCase() + w.substring(1).toLowerCase())
+//                .collect(Collectors.toList());
+//        System.out.println(res);
+
+
+
+
 
     }
 }
