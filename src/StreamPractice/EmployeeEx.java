@@ -227,7 +227,52 @@ public class EmployeeEx {
         Map<String, Optional<EmployeeEx>> collect = employeeList.stream().collect(Collectors.groupingBy(EmployeeEx::getDept, Collectors.maxBy(Comparator.comparing(EmployeeEx::getSalary))));
         System.out.println(collect);
 
+        //Average Salary by Gender
+        //Find the average salary of male and female employees separately.
 
+
+         //employeeList.stream().collect(Collectors.partitioningBy(EmployeeEx::getGender, Collectors.averagingDouble(EmployeeEx::getSalary)));
+
+        //Finding First Non-Repeating Character
+        //Find the first non-repeating character in a string using Streams. If all characters repeat, return an empty Optional.
+
+        String str="shivanand";
+        Character c1 = str.chars().mapToObj(c -> (char) c)
+                .filter(c -> str.indexOf(c) == str.lastIndexOf(c))
+                .findFirst().orElse(null);
+        System.out.println(c1);
+
+
+        //Finding the Most Experienced Employee
+        //Find the employee who has been with the company the longest (based on yearOfJoining).
+        Optional<EmployeeEx> collect1 = employeeList.stream()
+                .collect(Collectors.minBy(Comparator.comparing(EmployeeEx::getYearOfJoining)));
+        if (collect1.isPresent()) {
+            System.out.println(optional2.get());
+        }
+
+        //Merging Maps with Conflict Resolution
+        //Given two Map<String, Integer>, merge them into a single map. If a key exists in both, the value should be the sum of the values from both maps.
+
+
+        //Find employees whose salary is greater than average salary
+        Optional<EmployeeEx> collect2 = employeeList.stream().collect(Collectors.maxBy(Comparator.comparing(EmployeeEx::getSalary)));
+        System.out.println(collect2);
+
+        Double avgSalEmp = employeeList.stream().collect(Collectors.averagingDouble(EmployeeEx::getSalary));
+        System.out.println("avgSalEmp "+ avgSalEmp);
+
+        //Flatten nested list using flatMap
+        //Like this: [[a,b],[c,d],[e]] —> [a,b,c,d,e]
+
+        List<List<Character>> l= List.of(
+                List.of('a','b'),
+                List.of('c','d'),
+                List.of('e')
+        );
+
+        List<Character> flatMap = l.stream().flatMap(Collection::stream).collect(Collectors.toList());
+        System.out.println(flatMap);
 
     }
 }
